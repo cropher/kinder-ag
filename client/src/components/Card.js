@@ -1,0 +1,1 @@
+// Karte, die durch Anklicken den dazugehörigen Artikel aufruft.
