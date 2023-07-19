@@ -2,8 +2,8 @@ import './App.css';
 import SearchBar from './components/SearchBar';
 import Sidebar from "./components/Sidebar";
 import React from 'react';
-import Body from './components/body';
-import Footer from './components/footer';
+import Body from './components/body.js';
+import Footer from './components/footer.jsx';
 
 function App() {
   return (
