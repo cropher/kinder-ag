@@ -3,7 +3,7 @@ import SearchBar from './components/SearchBar';
 import Sidebar from "./components/Sidebar";
 import React from 'react';
 import Body from './components/body';
-import Footer from './components/footer';
+// import Footer from './components/Footer';
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <SearchBar/>
       <Sidebar/>
       <Body/>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   );
 }
