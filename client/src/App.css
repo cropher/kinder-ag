@@ -47,3 +47,10 @@ input {
   height: 70%;
   margin: auto 2%;  
 }
+/* ich habe das die body-div class rauskommentiert, weil sie im Moment nicht verwendet wird */
+
+/* .body-div
+{
+    height: 800px;
+    color: #ec787a;    
+} */
