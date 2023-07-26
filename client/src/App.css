@@ -30,6 +30,20 @@
   color: #61dafb;
 }
 
+section.search{
+display: block;
+}
+
+section.content{
+
+}
+
+.searchbar{
+  /* display: inline-block; */
+  /* float: left; */
+  margin-left: 25%;
+}
+
 form {
   background-color: white;
   width: 550px;
@@ -37,7 +51,6 @@ form {
   /* padding: 10px; */
   box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
   display: flex;
-  margin: auto;
   padding: 6px;
 }
 
@@ -63,12 +76,14 @@ input {
 }
 
 .sidebar{
-/* display: inline-block; */
+margin-top: 3%;
 background-color: white;
 width: 20%;
 height: 540px;
 padding: 10px;
 box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+display: inline-block;
+float: left;
 }
 
 .filter{
@@ -100,10 +115,22 @@ button:hover{
   margin-top: 20px;
 }
 
-/* ich habe das die body-div class rauskommentiert, weil sie im Moment nicht verwendet wird */
+.article{
+  width: 835px;
+  height: 832px;
+  padding: 50px;
+  background-color: white;
+  color: #343434;
+  text-align: left;
+  box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+  /* display: inline-block; */
+  /* float: left; */
+  float: left;
+  margin-top: 3%;
+  margin-left: 5%;
 
-/* .body-div
-{
-    height: 800px;
-    color: #ec787a;    
-} */
+}
+
+body{
+  width: 1145px;
+}
