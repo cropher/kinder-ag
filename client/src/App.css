@@ -57,6 +57,7 @@ input {
   border-style: solid;
 }
 
+
 .icon{
   margin: 12px;
 }
@@ -98,3 +99,11 @@ button:hover{
   font-size: 18px;
   margin-top: 20px;
 }
+
+/* ich habe das die body-div class rauskommentiert, weil sie im Moment nicht verwendet wird */
+
+/* .body-div
+{
+    height: 800px;
+    color: #ec787a;    
+} */
