@@ -1,5 +1,6 @@
 *{
   box-sizing:border-box;
+  font-family: Imprima, sans-serif;
 }
 
 .App {
@@ -36,6 +37,8 @@ form {
   /* padding: 10px; */
   box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
   display: flex;
+  margin: auto;
+  padding: 6px;
 }
 
 html, body{
@@ -45,8 +48,58 @@ html, body{
 input {
   width: 80%; 
   height: 70%;
-  margin: auto 2%;  
+  margin: auto 2%;
+  border-radius: 8px; 
+  padding: 12px;
+  display: inline-block;
+  border-width: 3px;
+  border-color: black;
+  border-style: solid;
 }
+
+
+.icon{
+  margin: 12px;
+}
+
+.sidebar{
+/* display: inline-block; */
+background-color: white;
+width: 20%;
+height: 540px;
+padding: 10px;
+box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+}
+
+.filter{
+  list-style-type: none;
+}
+
+button{
+  border-radius: 7px;
+  background-color:white;
+  height: 30px;
+  width: 130px;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 20px;
+  display: block;
+}
+
+button:hover{
+  background-color:#343434;
+  color: white;
+}
+
+.category{
+  font-size: 18px;
+  margin-top: 20px;
+}
+
 /* ich habe das die body-div class rauskommentiert, weil sie im Moment nicht verwendet wird */
 
 /* .body-div
