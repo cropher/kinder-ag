@@ -16,7 +16,8 @@ module.exports = {
     connectToDb: (cb) => {
 
         // connects mongoClient to DB and returns a promise which can be tagged with a .then method
-        MongoClient.connect('mongodb://localhost:27017/früKiBi/articles')
+        // NetNinja Tutorial: mongodb://localhost:27017/articles
+        MongoClient.connect('mongodb://0.0.0.0:27017/')
 
             // the .then-method triggers a function when connection is complete
             // when connection is complete created a 'client'-object
@@ -42,7 +43,7 @@ module.exports = {
     },
 
     // function to return the db connection after connection happened
-    getDB: () => dbConnection
+    getDb: () => dbConnection
 }
 
 

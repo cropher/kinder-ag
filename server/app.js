@@ -14,7 +14,7 @@ let db
 // this is the callback function
 connectToDb((err) => {
     if (!err) {
-        app.listen(27017, () => {
+        app.listen(5000, () => {
             console.log('Server is running on Port 5000');
         })
         // call getDb function and assign the connection to
