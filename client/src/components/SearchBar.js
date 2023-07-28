@@ -1,6 +1,7 @@
 // Die Search-Bar, über die Keywords eingegeben werden.
 
 import React, {useState} from 'react'
+import searchIcon from "../img/searchIcon.svg"
 
 
 const SearchBar = () => {
@@ -19,6 +20,7 @@ const SearchBar = () => {
                 placeholder="Aktivitäten suchen"
                 onChange={(e)=>onChange(e.target.value)}
                 />
+                <img src={searchIcon} className='icon' alt="search icon"/>
             </form>
         </section>
     )

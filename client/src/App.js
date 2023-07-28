@@ -1,17 +1,25 @@
 import './App.css';
+import React from 'react';
 import SearchBar from './components/SearchBar';
 import Sidebar from "./components/Sidebar";
 import React from 'react';
-import Body from './components/body.js';
-import Footer from './components/footer.jsx';
+// import Article from "./components/Article";
+  import Footer from './components/Footer;
+
 
 function App() {
   return (
     <div className='App'>
-      <SearchBar/>
-      <Sidebar/>
-      <Body/>
+      <body>
+        <section className='search'>
+          <SearchBar/>
+        </section>
+        <section className='content'>
+         <Sidebar/>
+          {/* <Article/> */}
+        </section>
       <Footer/>
+      </body>
     </div>
   );
 }
