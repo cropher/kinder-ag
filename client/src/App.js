@@ -2,9 +2,8 @@ import './App.css';
 import React from 'react';
 import SearchBar from './components/SearchBar';
 import Sidebar from "./components/Sidebar";
-import React from 'react';
 // import Article from "./components/Article";
-  import Footer from './components/Footer;
+import Footer from "./components/footer.jsx";
 
 
 function App() {
@@ -18,8 +17,13 @@ function App() {
          <Sidebar/>
           {/* <Article/> */}
         </section>
-      <Footer/>
+        <section className='footer-area'>
+        <Footer/>
+        </section>
+          
+
       </body>
+
     </div>
   );
 }
