@@ -1,65 +1,63 @@
 const express = require('express');
 
-// import functions from db module
-const { connectToDb, getDb } = require('./db')
+// import connectToDatabase function from dbconnection module
+const connectToDatabase = require('./dbconnection');
 
-// initialize app & middleware
+// initialize express app
 const app = express();
 
-// establish database connection:
-
-// initialize variable for db connection
-let db
-
-// this is the callback function
-connectToDb((err) => {
-    if (!err) {
-        app.listen(5000, () => {
-            console.log('Server is running on Port 5000');
-        })
-        // call getDb function and assign the connection to
-        // an object called 'db' to be used in endpoint handler functions
-        db = getDb()
-    }
-})
-
-// Routes:
+// ------------------------------------------------------------------------------------
+// routes:
 
 // get all articles
-app.get('/articles', (req, res) => {
-    // define empty array where fetched documents will get pushed to
-    let articles = []
+app.get('/articles', async (req, res) => {
+  try {
+    // Get the collection by calling the connectToDatabase function
+    const collection = await connectToDatabase();
 
-    // define the desired collection with the connection method
-    db.connection('articles')
+    // Fetch all documents from the collection
+    const documents = await collection.find().toArray();
 
-        // .find-method returns a 'cursor'-object which points to the documents outlined by the query
-        // .find()-arguments contain the filter conditions
-        .find()
-
-        // based on the cursor above, create a new cursor which has documents sorted by author name (A-Z)
-        .sort({ author: 1})
-        
-        // forEach iterates through all documents of the current batch and allows to process each one individually
-        .forEach(article => articles.push(article))
-        // we could have used "toArray()" as well
-        // toArray fetches - in batches of 101 (default) - all documents that the cursor points to and puts them in an array
-        // for small batches "toArray()" is preferred
-
-        // fire a function when forEach method execution is finished
-        // functions sends a status(200) to the user (200: "All okay")
-        // function sends the articles array as json string to the client which made the get request
-        .then(() => {
-            res.status(200).json(articles)
-        })
-
-        // .catch method sends a status error(500) (500: "Server error") and error message as json string
-        .catch(() => {
-            res.status(500).json({error: 'Could not fetch the documents'})
-        })
+    // Send the documents as the response in JSON format
+    res.json(documents);
+  } catch (error) {
+    console.error('Error fetching documents:', error);
+    res.status(500).json({ error: 'Could not fetch the documents' });
+  }
 });
 
-// server connection successful?
-app.get('/', (req, res) => {
-    res.json({mssg: 'Welcome to the API'})
-})
+app.get('/articles/filter', async (req, res) => {
+  try {
+    // Get the collection by calling the connectToDatabase function
+    const collection = await connectToDatabase();
+
+    // Extract query parameters for filtering (e.g., /articles/filter?author=Max%20Meier&age=5)
+    const { author, age } = req.query;
+
+    // Build the filter object based on the query parameters
+    const filter = {};
+    if (author) {
+      filter.author = author;
+    }
+    if (age) {
+      filter.age = parseInt(age);
+    }
+
+    // Fetch documents from the collection based on the filter
+    const documents = await collection.find(filter).toArray();
+
+    // Send the filtered documents as the response in JSON format
+    res.json(documents);
+  } catch (error) {
+    console.error('Error fetching documents:', error);
+    res.status(500).json({ error: 'Could not fetch the documents' });
+  }
+});
+
+
+// ---------------------------------------------------------------------------------
+// express app
+const PORT = 5000;
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
