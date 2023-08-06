@@ -13,6 +13,7 @@ const SearchBar = ({getQuery}) => {
     // damit wird variable "text" aktualisiert
     const onChange = (q)=>{
         setText(q)
+        getQuery(q)
     }
 
     // hier wird die SearchBar definiert
