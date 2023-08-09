@@ -1,15 +1,17 @@
-//https://codepen.io/kokoz/pen/PowpXvG
-//https://www.youtube.com/watch?v=KRJvlxhLXxk
-//https://www.youtube.com/watch?v=t3UjWbh7mqI
-//https://www.youtube.com/watch?v=sWVgMcz8Q44
+// Damit man die Searchbar/Sidebar testen kann, ist das Ausführen des lokalen Clients und Servers erforderlich
+// Dazu wählt man in VS Code: Terminal > Split Terminal
+// in dem einen Terminal führt man den Befehl "cd server" aus. Via "npm install" müssen ggf. fehlende Packages installiert werden. Dann startet man die server app mit "node app"
+// in dem anderen Terminal führt man den Befehl "cd client" aus. Via "npm install" müssen ggf. fehlende Packages installiert werden. Dann startet man die client app durch "npm start"
+// außerdem ist das in dem folgenden Artikel beschriebene Browser-Plugin erforderlich:
+// https://medium.com/@dtkatz/3-ways-to-fix-the-cors-error-and-how-access-control-allow-origin-works-d97d55946d9
 
 import './App.css';
 import React, {useState, useEffect} from 'react';
 import axios from "axios";
-//import {MongoClient} from "mongodb";
 import SearchBar from './components/SearchBar';
 import Sidebar from "./components/Sidebar";
 import Footer from "./components/footer.jsx";
+// import Article from "./components/Article";
 
 
 function App() {
@@ -18,20 +20,29 @@ function App() {
 // das query wird in der URL verwendet, mit der die Daten aus der API abgerufen werden
   const [query, setQuery] = useState("")
 
-  // wir nutzen einen useEffect Hook, um die component mit der API zu synchronisieren
-
+// wir nutzen einen useEffect Hook, um die component mit der API zu synchronisieren
+// axios schickt einen GET request an die search-URL des servers
+// der query wird als search parameter angehängt, sodass der server danach sucht
+// die Antwort des servers wird momentan nur in der consolte geloggt; zu Testzwecken zusammen mit dem query, damit man den ggf. prüfen kann
   useEffect (()=>{
     const fetchItems = async () =>{
       
       
       try {
-        const result = await axios.get (`https://jsonplaceholder.typicode.com/users?name=${query}`)
-        console.log(result.data)
-        console.log(query)
+        const response = await axios.get (`http://localhost:5000/articles/search`
+        ,{
+          params:{search: (query)
+          }
+      }
+      )
+      console.log(response);
+      console.log(query);
+       
       }
       catch (error){
         console.log(error);
       }    }
+      
       fetchItems()
     }, [query])
 
