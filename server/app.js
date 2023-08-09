@@ -14,6 +14,7 @@ app.get('/', (req, res) => {
     res.json({mssg: 'Welcome to the API'});
 });
 
+// Route 1
 // get all articles
 app.get('/articles', async (req, res) => {
   try {
@@ -31,6 +32,8 @@ app.get('/articles', async (req, res) => {
   }
 });
 
+// Route 2
+// get articles filtered by location, age and competence
 app.get('/articles/filter', async (req, res) => {
   try {
     // Get the collection by calling the connectToDatabase function
@@ -42,28 +45,30 @@ app.get('/articles/filter', async (req, res) => {
     // Build the filter object based on the query parameters
     const filter = {};
        
-    // funktioniert noch nicht
+    // Frontend-Schema: Multiple locations must be separated by a comma (http-encoding: '%2C') 
+    // e.g. "localhost:5000/articles/filter?location=indoor%2Coutdoor"
+    // sends back all activities which can be done indoor AND outdoor. All attributes must be matched
+    // In contrast "localhost:5000/articles/filter?location=indoor" sends back all activities which 
+    // can be done indoor, independent of other possible locations (e.g. indoor) for the activity
     if (queryParams.location) {
-
-        const locationArray = queryParams.competence.split(',');
-
-        filter.location = { $in: locationArray };
+      // convert comma-seperated location options in the http string to an array
+      const locationArray = queryParams.location.split(',');
+      // create filter object's location key object with all-operator, so that all parameters must be matched
+      filter.location = { $all: locationArray };
     }
 
     // possible age array values in database must be matched exactly -> eighter "under_3" or "over_3"
     if (queryParams.age) {
         
-        filter.age = queryParams.age;
+      filter.age = queryParams.age;
     }
 
     // Frontend-Schema: Multiple competences must be separated by a comma (http-encoding: '%2C') 
     // e.g. "localhost:5000/articles/filter?competence=music%2Csocial"
+    // only sends back documents where $all parameters are matched
     if (queryParams.competence) {
-        // convert comma-seperated competence options in the http string to an array
         const competenceArray = queryParams.competence.split(',');
-        
-        // add all options in the array to the competence key 
-        filter.competence = { $in: competenceArray };
+        filter.competence = { $all: competenceArray };
     }
 
     // Fetch documents from the collection based on the filter
@@ -77,7 +82,8 @@ app.get('/articles/filter', async (req, res) => {
   }
 });
 
-// Full Text Search Route
+// Route 3
+// get articles based on text-input, looks up regex in title, body and author
 // e.g. "localhost:5000/articles/search?search=tanz"
 app.get('/articles/search', async (req, res) => {
   try {
