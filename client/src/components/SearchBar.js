@@ -21,7 +21,7 @@ const SearchBar = ({getQuery}) => {
     // der value der Texteingabe (e.target.value) wird dabei als prop an die obige Funktion gegeben.
     return (
         <section className="searchbar">
-            <form>   
+            <form id="searchbarForm">   
                 <input
                 type="text"
                 value={text}
