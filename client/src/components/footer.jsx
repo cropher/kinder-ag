@@ -1,7 +1,6 @@
 // Die Fußleiste am unteren Rand.
 
 import React from 'react';
-import './footer.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faFacebook,
