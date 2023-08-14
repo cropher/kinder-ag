@@ -11,7 +11,9 @@ import axios from "axios";
 import SearchBar from './components/SearchBar';
 import Sidebar from "./components/Sidebar";
 import Footer from "./components/footer.jsx";
+import Navigation from './components/Navigation';
 import Grid from "./components/Grid";
+
 // import Article from "./components/Article";
 
 
@@ -58,6 +60,9 @@ function App() {
   return (
     <div className='App'>
       <body>
+        <section className='navigation'>
+          <Navigation/>
+        </section>
         <section className='search'>
           <SearchBar getQuery={queryFunction}/>
         </section>
