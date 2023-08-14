@@ -1,19 +1,19 @@
 // Karte, die durch Anklicken den dazugehörigen Artikel aufruft.
-import React from 'react'
-import CharacterItem from './CharacterItem'
-import Spinner from '../ui/Spinner'
+// import React from 'react'
+// import CharacterItem from './CharacterItem'
+// import Spinner from '../ui/Spinner'
 
-const CharacterGrid = ({ items, isLoading }) => {
-  return isLoading ? (
-    <Spinner />
-  ) : (
-    <section className='cards'>
-      {items.map((item) => (
-        <CharacterItem key={item.char_id} item={item}></CharacterItem>
-      ))}
-    </section>
-  )
-}
+// const CharacterGrid = ({ items, isLoading }) => {
+//   return isLoading ? (
+//     <Spinner />
+//   ) : (
+//     <section className='cards'>
+//       {items.map((item) => (
+//         <CharacterItem key={item.char_id} item={item}></CharacterItem>
+//       ))}
+//     </section>
+//   )
+// }
 
 import React from 'react'
 

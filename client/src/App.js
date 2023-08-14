@@ -12,6 +12,8 @@ import SearchBar from './components/SearchBar';
 import Sidebar from "./components/Sidebar";
 import Footer from "./components/footer.jsx";
 import Navigation from './components/Navigation';
+import Grid from "./components/Grid";
+
 // import Article from "./components/Article";
 
 
@@ -21,10 +23,13 @@ function App() {
 // das query wird in der URL verwendet, mit der die Daten aus der API abgerufen werden
   const [query, setQuery] = useState("")
 
+  // items repräsentiert die response aus der Datenbank. setItems ist die Funktion zum Updaten der Items.
+  const [items, setItems] = useState([])
+
 // wir nutzen einen useEffect Hook, um die component mit der API zu synchronisieren
 // axios schickt einen GET request an die search-URL des servers
 // der query wird als search parameter angehängt, sodass der server danach sucht
-// die Antwort des servers wird momentan nur in der consolte geloggt; zu Testzwecken zusammen mit dem query, damit man den ggf. prüfen kann
+// die Antwort des servers wird momentan nur in der console geloggt; zu Testzwecken zusammen mit dem query, damit man den ggf. prüfen kann
   useEffect (()=>{
     const fetchItems = async () =>{
       
@@ -38,6 +43,7 @@ function App() {
       )
       console.log(response);
       console.log(query);
+      setItems(response.data);
        
       }
       catch (error){
@@ -62,6 +68,7 @@ function App() {
         </section>
         <section className='content'>
          <Sidebar/>
+         <Grid items={items}/>
           {/* <Article/> */}
         </section>
         <section className='footer-area'>
