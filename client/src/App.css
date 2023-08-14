@@ -42,6 +42,7 @@ section.content{
 .searchbar{
   /* display: inline-block; */
   /* float: left; */
+  margin-top: 10px;
   margin-left: 25%;
   box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
   width: 550px;
@@ -181,6 +182,7 @@ section.footer-area{
   background-color: #dc5865;
   padding-top: 10px;
   padding-bottom: 10px;
+  position: absolute;
   bottom: 0; 
   width: 100%; 
   font-size: 12px;
