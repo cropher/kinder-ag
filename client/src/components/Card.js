@@ -2,9 +2,9 @@
 
 import React from 'react'
 
-const CharacterItem = ({ item }) => {
+const CharacterItem = ({ item, onClick }) => {
   return (
-    <div className='card'>
+    <button className='card' onClick={onClick}>
       <div className='card-inner'>
         <div className='card-front'>
           <img src={item.img} alt='' />
@@ -17,7 +17,7 @@ const CharacterItem = ({ item }) => {
           </ul>
         </div>
       </div>
-    </div>
+    </button>
   )
 }
 

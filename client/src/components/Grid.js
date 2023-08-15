@@ -2,11 +2,11 @@
 import React from 'react'
 import Card from "./Card"
 
-const Grid = ({items}) => {
+const Grid = ({items, onItemClick}) => {
   return (
     <section className='GridSection'>
         {items.map((item)=>(
-        <Card key={item.id} item={item}></Card>))}
+        <Card key={item.id} item={item} onClick={() => onItemClick(item._id, items)}></Card>))}
         
     </section>)
   

@@ -6,7 +6,7 @@
 // https://medium.com/@dtkatz/3-ways-to-fix-the-cors-error-and-how-access-control-allow-origin-works-d97d55946d9
 
 import './App.css';
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import axios from "axios";
 import SearchBar from './components/SearchBar';
 import Sidebar from "./components/Sidebar";
@@ -14,7 +14,9 @@ import Footer from "./components/footer.jsx";
 import Navigation from './components/Navigation';
 import Grid from "./components/Grid";
 
-// import Article from "./components/Article";
+
+import Article from "./components/Article";
+
 
 
 function App() {
@@ -25,6 +27,12 @@ function App() {
 
   // items repräsentiert die response aus der Datenbank. setItems ist die Funktion zum Updaten der Items.
   const [items, setItems] = useState([])
+  const [selectedArticle, setSelectedArticle] = useState(null)
+
+  const onItemClick = useCallback((id) => {
+    const selected = items.find((item) => item._id === id)
+    setSelectedArticle(selected);
+  }, [items]);
 
 // wir nutzen einen useEffect Hook, um die component mit der API zu synchronisieren
 // axios schickt einen GET request an die search-URL des servers
@@ -44,6 +52,7 @@ function App() {
       console.log(response);
       console.log(query);
       setItems(response.data);
+      
        
       }
       catch (error){
@@ -57,6 +66,8 @@ function App() {
       setQuery(q)
     }
 
+    console.log(selectedArticle);
+
   return (
     <div className='App'>
       <body>
@@ -68,8 +79,8 @@ function App() {
         </section>
         <section className='content'>
          <Sidebar/>
-         <Grid items={items}/>
-          {/* <Article/> */}
+        {!selectedArticle ? <Grid items={items} onItemClick={onItemClick} /> : null}
+        <Article item={selectedArticle} onClose={() => setSelectedArticle(null)}/>
         </section>
         <section className='footer-area'>
         <Footer/>
