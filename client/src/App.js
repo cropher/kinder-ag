@@ -14,6 +14,9 @@ function App() {
   // das query wird in der URL verwendet, mit der die Daten aus der API abgerufen werden
   const [query, setQuery] = useState("")
 
+  const [filter, setFilter] = useState("")
+
+
   // items repräsentiert die response aus der Datenbank. setItems ist die Funktion zum Updaten der Items.
   const [items, setItems] = useState([])
 
@@ -53,6 +56,10 @@ function App() {
     setQuery(q)
   }
 
+  const getFilterFunction = (f) => {
+    setFilter(f)
+  }
+
   console.log(selectedArticle);
 
   return (
@@ -65,7 +72,7 @@ function App() {
           <SearchBar getQuery={queryFunction} />
         </section>
         <section className='content'>
-          <Sidebar />
+          <Sidebar getFilterFunction={getFilterFunction}/>
           {/* Die folgende Funktion prüft, ob selectedArticle true oder untrue ist. Wenn es true ist (kein Artikel ausgewählt), wird das Grid angezeigt und die items werden als props an das Grid gegeben. Wenn dagegen ein Artikel ausgewählt wird, wird stattdessen "null" anezeigt, und nicht mehr das Grid.*/}
           {!selectedArticle ? <Grid items={items} onItemClick={onItemClick} /> : null}
           <Article item={selectedArticle} onClose={() => setSelectedArticle(null)} />
