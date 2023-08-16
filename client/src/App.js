@@ -56,11 +56,36 @@ function App() {
     setQuery(q)
   }
 
+
+
+  useEffect(() => {
+    const fetchItemsViaFilter = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/articles/filter`,
+          {
+            params: {
+              competence: (filter)
+            }
+          })
+        console.log(filter);
+        console.log(response);
+        setItems(response.data);
+      }
+      catch (error) {
+        console.log(error);
+      }
+    }
+    fetchItemsViaFilter()
+  }, [filter])
+
   const getFilterFunction = (f) => {
     setFilter(f)
   }
 
+
   console.log(selectedArticle);
+
+  console.log("Das sind die Filter, die in der App-Component ankommen: " + filter)
 
   return (
     <div className='App'>
