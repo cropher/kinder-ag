@@ -31,16 +31,20 @@ const GetSelected = () => {
     }}
     if (selected.length > 0) {
       setFilter(selected.join(","));
-      getFilterFunction(filter);
-      console.log("das sind die Filter:" + selected.join(","));
+      console.log("das sind die Filter:" + filter);
 
     }
   }
 
-// useEffect(()=>{
-//   changedFilters(filter);
+  // der folgende useEffect Hook wird beim (re)render der Sidebar ausgeführt.
+  // er nimmt den aktuellen filter-value und gibt ihn an die getFilterFunction und damit an die Parent Component
+useEffect(()=>{
+  console.log("das sind die Filter nach useEffect" + filter);
+  getFilterFunction(filter);
 
-// })
+  ;
+
+})
 
 
 

@@ -52,12 +52,14 @@ function App() {
     }
     fetchItems()
   }, [query])
+  
   const queryFunction = (q) => {
     setQuery(q)
   }
 
 
-
+// der folgende hook funktioniert nach dem gleichen Prinzip wie der vorherige.
+// Allerdings verwendet dieser den filter aus der Sidebar.
   useEffect(() => {
     const fetchItemsViaFilter = async () => {
       try {
