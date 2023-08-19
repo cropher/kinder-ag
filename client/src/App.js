@@ -93,6 +93,8 @@ function App() {
   return (
     <div className='App'>
       <body>
+        <div className="pageContainer">
+          <div className="contentWrap">
         <section className='navigation'>
           <Navigation />
         </section>
@@ -108,9 +110,9 @@ function App() {
           {!selectedArticle ? <Grid items={items} onItemClick={onItemClick} /> : null}
           <Article item={selectedArticle} onClose={() => setSelectedArticle(null)} />
         </section>
-        <section className='footer-area'>
           <Footer />
-        </section>
+          </div>
+        </div>
 
 
       </body>

@@ -29,11 +29,12 @@ const GetSelected = () => {
     if (checks[i].checked) {
       selected.push(checks[i].value);
     }}
-    if (selected.length > 0) {
+    if (selected.length >= 0) {
       setFilter(selected.join(","));
       console.log("das sind die Filter:" + filter);
 
     }
+ 
   }
 
   // der folgende useEffect Hook wird beim (re)render der Sidebar ausgeführt.
@@ -54,30 +55,30 @@ useEffect(()=>{
       <form id="sidebarForm">
       <ul className='filter'>
         <li className='category'>Altersgruppe</li>
-        <input type="checkbox" name="under_3" value="under_3"/>
-        <label htmlFor="inside">bis 3 Jahre</label><br/>
-        <input type="checkbox" name="over_3" value="over_3"/>
-        <label htmlFor="inside">ab 3 Jahre</label><br/>
+        <input type="checkbox" name="under_3" value="under_3" id="under_3Button"/>
+        <label htmlFor="under_3Button">bis 3 Jahre</label><br/>
+        <input type="checkbox" name="over_3" value="over_3" id="over_3Button"/>
+        <label htmlFor="over_3Button">ab 3 Jahre</label><br/>
 
         <li className='category'>Kompetenz</li>
-        <input type="checkbox" name="logic" value="logic"/>
-        <label htmlFor="inside">Logic</label><br/>
-        <input type="checkbox" name="social" value="social"/>
-        <label htmlFor="inside">Sozial</label><br/>
-        <input type="checkbox" name="movement" value="movement"/>
-        <label htmlFor="inside">Bewegung</label><br/>
-        <input type="checkbox" name="music" value="music"/>
-        <label htmlFor="inside">Musik</label><br/>
-        <input type="checkbox" name="science" value="science"/>
-        <label htmlFor="inside">Wissen</label><br/>
-        <input type="checkbox" name="creativity" value="creativity"/>
-        <label htmlFor="inside">Kreativität</label><br/>
+        <input type="checkbox" name="logic" value="logic" id="logicButton"/>
+        <label htmlFor="logicButton">Logik</label><br/>
+        <input type="checkbox" name="social" value="social" id="socialButton"/>
+        <label htmlFor="socialButton">Sozial</label><br/>
+        <input type="checkbox" name="movement" value="movement" id="movementButton"/>
+        <label htmlFor="movementButton">Bewegung</label><br/>
+        <input type="checkbox" name="music" value="music" id="musicButton"/>
+        <label htmlFor="musicButton">Musik</label><br/>
+        <input type="checkbox" name="science" value="science" id="scienceButton"/>
+        <label htmlFor="scienceButton">Wissen</label><br/>
+        <input type="checkbox" name="creativity" value="creativity" id="creativityButton"/>
+        <label htmlFor="creativityButton">Kreativität</label><br/>
 
 
         <li className='category'>Ort</li>
-        <input type="checkbox" name="inside" value="inside"/>
+        <input type="checkbox" name="inside" value="inside" id="logicButton"/>
         <label htmlFor="inside">drinnen</label><br/>
-        <input type="checkbox" name="outside" value="outside"/>
+        <input type="checkbox" name="outside" value="outside" id="logicButton"/>
         <label htmlFor="inside">draußen</label><br/>
         <button type="button" onClick = {()=>GetSelected()}>Filter</button>
 
