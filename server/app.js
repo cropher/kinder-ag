@@ -6,8 +6,6 @@ const connectToDatabase = require('./dbconnection');
 // initialize express app
 const app = express();
 
-console.log("start here")
-
 // ------------------------------------------------------------------------------------
 // routes:
 
@@ -21,8 +19,7 @@ app.get('/', (req, res) => {
 app.get('/articles', async (req, res) => {
   try {
     // Get the collection by calling the connectToDatabase function
-    const db = await connectToDatabase();
-    const collection = db.collection('articles');
+    const collection = await connectToDatabase();
 
     // Fetch all documents from the collection
     const documents = await collection.find({}).toArray();
