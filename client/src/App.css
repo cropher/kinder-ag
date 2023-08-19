@@ -8,6 +8,14 @@
 }
 
 
+.article a{
+  color:#4ec3ab;
+}
+
+.source p{
+  font-size: 13px;
+  margin-top: 50px;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -122,10 +130,10 @@ html, body{
 }
 
 .sidebar{
-margin-top: 2%;
+margin-top: 2.5%;
 background-color: white;
 width: 20%;
-height: 540px;
+height: 530px;
 padding: 10px;
 box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
 display: inline-block;
@@ -147,6 +155,13 @@ user-select: none;
   
 }
 
+
+
+/* .filter input:checked{
+  background-color:#4ec3ab;
+
+} */
+
 label:hover{
   color:#4ec3ab;
 }
@@ -159,16 +174,16 @@ label:hover{
   padding-left: 12px;
   padding-right: 12px;
   margin-top: 7px;
-  margin-bottom: 7px;
-  margin-left: auto;
-  margin-right: auto;
+
   font-size: 20px;
   display: block;
 }
 
 .sidebar button:hover{
-  background-color:#343434;
+  background-color:#4ec3ab;
+  border-width: 0;
   color: white;
+
 }
 
 
@@ -191,26 +206,35 @@ label:hover{
   height: 150px;
   /* padding: 20px; */
   margin: 30px 10px;
+  user-select: none;
 
 }
 
 .card:hover{
   border-color:#4ec3ab;
+  color:#4ec3ab;
+
 }
 
 .cardButton{
   font-size: 20px;
   width: 100%;
-  height: 100%;
+  height: 20%;
   margin: 0;
   padding: 0;
   border-style: none;
   background: none;
 }
 
-.cardButton:hover{
-  color:#4ec3ab;
-  }
+.cardImageContainer{
+  height: 70%;
+}
+
+.cardImage{
+  height: 100%;
+}
+
+
 
 
 .article{
@@ -222,7 +246,7 @@ label:hover{
   text-align: left;
   box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
   float: left;
-  margin-top: 3%;
+  margin-top: 2%;
   margin-left: 5%;
   margin-bottom: 20px;
 }
@@ -243,8 +267,9 @@ label:hover{
 }
 
 .CloseArticleButton:hover{
-  color:#4ec3ab;
-  border-color: #4ec3ab;
+  color:white;
+  background-color:#dc5865;
+  border-width: 0px;
   }
 
 /* body{

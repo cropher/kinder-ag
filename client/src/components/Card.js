@@ -6,13 +6,16 @@ import React from 'react'
 // außerdem wird die onClick-Funktion gecallt, die in der Parent-Component definiert wurde; dabei wird das item der Card an diese weitergegeben.
 const CharacterItem = ({ item, onClick }) => {
   return (
-    <div className="card">
+    <div className="card" onClick={onClick}>
+      <div className="cardImageContainer">
+      <img src={item.image} className='cardImage'></img>
+      </div>
 
-    <button className='cardButton' onClick={onClick}>
+    <div className='cardButton' >
 
           {item.title}
 
-    </button>
+    </div>
     </div>
   )
 }
