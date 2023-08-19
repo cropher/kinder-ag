@@ -7,9 +7,9 @@ const Article = ({ item, onClose }) => {
   return (
     <div className='article'>
         <h1>{item.title}</h1>
-        <h2>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular.</h2>
-        {/* <div dangerouslySetInnerHTML={{__html: item.body}} /> */}
-      <button onClick={onClose}>Close</button>   
+        {/* <h2>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular.</h2> */}
+        <div dangerouslySetInnerHTML={{__html: item.body}} />
+      <button className="CloseArticleButton" onClick={onClose}>zurück</button>   
     </div>
   )
 }
