@@ -6,13 +6,12 @@ import {
     faFacebook,
     faInstagram
   } from "@fortawesome/free-brands-svg-icons";
-import FrüKiBi_Logo_Weiß from "../img/FrüKiBi_Logo_Weiß.svg"
 
 const Footer=()=>{
     return (
         <div className='footer'>
             <div className='footer-above'>
-            <img src={FrüKiBi_Logo_Weiß} style={{ height: 40 }} alt="FrüKiBi Logo"/>
+            <p>Hier kommt links Logo</p>
                 <div class="social-container">
                     <a href="/"
                         className="social">

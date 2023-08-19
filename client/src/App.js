@@ -1,7 +1,6 @@
 import './App.css';
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from "axios";
-import Branding from './components/Branding';
 import SearchBar from './components/SearchBar';
 import Sidebar from "./components/Sidebar";
 import Footer from "./components/footer.jsx";
@@ -95,9 +94,6 @@ function App() {
       <body>
         <section className='navigation'>
           <Navigation />
-        </section>
-        <section className="branding">
-          <Branding />
         </section>
         <section className='search'>
           <SearchBar getQuery={queryFunction} />
