@@ -86,6 +86,7 @@ html, body{
   border-width: 3px;
   border-color: black;
   border-style: solid;
+  outline: none;
 }
 
 #searchbarForm input:hover  {

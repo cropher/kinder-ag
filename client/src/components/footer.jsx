@@ -12,7 +12,7 @@ const Footer=()=>{
     return (
         <div className='footer'>
             <div className='footer-above'>
-            <img src={FrüKiBi_Logo_Weiß} style={{ height: 40 }}/>
+            <img src={FrüKiBi_Logo_Weiß} style={{ height: 40 }} alt="FrüKiBi Logo"/>
                 <div class="social-container">
                     <a href="/"
                         className="social">
